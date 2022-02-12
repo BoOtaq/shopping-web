@@ -1,0 +1,18 @@
+<div class="header-container">
+    <div class="header-wrapper">
+        <div class="header-logo">
+            <i class="fas fa-shipping-fast icon"></i>
+            <strong routerLink="products">Shopping-B</strong>
+        </div>
+        <div class="header-search_field">
+            <input type="text" placeholder="Enter a product" [(ngModel)]="searchTerm" (keyup)="search($event)">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="header-cart">
+            <button routerLink="cart" class="header-btn">
+                <i class="fas fa-cart-plus"></i>
+                <button class="header-btn-small">{{totalItem}}</button>
+            </button>
+        </div>
+    </div>
+</div>

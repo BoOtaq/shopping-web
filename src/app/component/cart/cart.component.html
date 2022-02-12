@@ -1,0 +1,60 @@
+<ng-container *ngIf="product.length != 0">
+    <div class="fillCart-container">
+        <div class="fillCart-wrapper">
+            <div class="fillCart-product">
+                <div class="fillCart-table">
+                    <div class="fillCart-labels">
+                        <span class="fillCart-labels_i">Sr.No</span>
+                        <span class="fillCart-labels_title">Product Name</span>
+                        <span class="fillCart-labels_image">Product Image</span>
+                        <span class="fillCart-labels_description">Description</span>
+                        <span class="fillCart-labels_price">Price</span>
+                        <span class="fillCart-labels_quantity">Quantity</span>
+                        <span class="fillCart-labels_total">Total</span>
+                        <span>Action</span>
+                    </div>
+                    <div class="fillCart-subject" *ngFor="let item of product, let i = index">
+                        <span class="fillCart-subject_i">{{i + 1}}</span>
+                        <span class="fillCart-subject_title">{{item.title}}</span>
+                        <span class="fillCart-subject_image"><img src="{{item.image}}" alt=""></span>
+                        <span class="fillCart-subject_description">{{item.description}}</span>
+                        <span class="fillCart-subject_price"><strong>{{item.price}}</strong></span>
+                        <span class="fillCart-subject_quantity">{{item.quantity}}</span>
+                        <span class="fillCart-subject_total">{{item.total}}</span>
+                        <span>
+                            <button (click)="removeItem(item)"><i class="fas fa-trash-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+                        <div class="fillCart-additional_buttons">
+                            <button (click)="emptyCart()" class="fillCart-ec">Empty Cart</button>
+                            <button routerLink="/products" class="fillCart-sm">Shop More</button>
+                            <button class="fillCart-ch">Checkout</button>
+                            <div>
+                            <strong>Grand Total: 
+                                <br>${{grandTotal}}</strong>
+                            </div>
+                        </div>
+            </div>
+        </div>
+</div>
+</ng-container>
+
+<ng-container *ngIf="product.length == 0">
+    <div class="cart-container">
+        <div class="cart-item">
+            <h2 class="cart-item_title">
+                My Cart
+            </h2>
+        </div>
+        <div class="cart-center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+            <br>
+            <h4>Your cart is empty!</h4>
+            <br>
+            <h6>Add item to it now</h6>
+            <br>
+            <button routerLink="/products">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
